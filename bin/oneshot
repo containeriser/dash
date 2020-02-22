@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -ex
+
+init
+
+if [ $# -gt 0 ]; then
+    args=("$@")
+else
+    args=("-rpcallowip=::/0")
+fi
+
+DAEMON_NAME=$(jq -r .daemon_name $HOME/config.json)
+exec $DAEMON_NAME "${args[@]}"

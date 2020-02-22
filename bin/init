@@ -1,0 +1,25 @@
+#!/bin/bash
+set -ex
+
+
+DATADIR_NAME=$(jq -r .datadir_name $HOME/config.json)
+CONFIG_NAME=$(jq -r .config_name $HOME/config.json)
+
+if [ ! -e "$HOME/$DATADIR_NAME/$CONFIG_NAME" ]; then
+    mkdir -p $HOME/$DATADIR_NAME
+
+    echo "Creating $CONFIG_NAME"
+
+    # Seed a random password for JSON RPC server
+    cat <<EOF > $HOME/$DATADIR_NAME/$CONFIG_NAME
+disablewallet=${DISABLEWALLET:-1}
+printtoconsole=${PRINTTOCONSOLE:-1}
+rpcuser=${RPCUSER:-bitcoinrpc}
+rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+EOF
+
+fi
+
+cat $HOME/$DATADIR_NAME/$CONFIG_NAME
+
+echo "Initialization completed successfully"

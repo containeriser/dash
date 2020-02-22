@@ -1,0 +1,10 @@
+*.md
+*.yaml
+tmp/repo/COPYING
+.github/
+tmp/repo/.tx/
+tmp/repo/depends/
+tmp/repo/ci/
+tmp/repo/build_msvc/
+tmp/repo/.*
+.*
