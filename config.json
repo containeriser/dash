@@ -1,7 +1,7 @@
 {
-  "upstream_github_repo": "https://github.com/bitcoin/bitcoin",
-  "package_name": "containeriser/bitcoin",
-  "datadir_name": ".bitcoin",
-  "config_name": "bitcoin.conf",
-  "daemon_name": "bitcoind"
+  "upstream_github_repo": "https://github.com/dashpay/dash",
+  "package_name": "containeriser/dash",
+  "datadir_name": ".dash",
+  "config_name": "dash.conf",
+  "daemon_name": "dashd"
 }
